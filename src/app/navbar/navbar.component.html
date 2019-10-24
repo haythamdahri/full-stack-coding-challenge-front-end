@@ -18,10 +18,26 @@
         <a class="nav-link" [routerLink]="'/preferred-shops'" [routerLinkActive]="'active'"><i
           class="fab fa-opencart"></i> Preferred Shops</a>
       </li>
+
+      <li class="nav-item" *ngIf="authService.isAuthenticated() else unauthenticated">
+        <a class="nav-link" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+
+      <!-- Unauthenticated users -->
+      <ng-template #unauthenticated>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/login'" [routerLinkActive]="'active'"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/signup'" [routerLinkActive]="'active'"><i class="fas fa-user-plus"></i> Sign up</a>
+        </li>
+      </ng-template>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Search</button>
     </form>
   </div>
 </nav>
