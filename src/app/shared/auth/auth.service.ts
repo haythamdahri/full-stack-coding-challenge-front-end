@@ -117,7 +117,6 @@ export class AuthService {
    * @returns UserToken object
    */
   decodeToken(token: string) {
-    console.log('Decoding token: ' + token);
     const decoded = jwtDecode(token);
     const userToken = new UserToken();
     userToken.bearerToken = 'Bearer ' + token;

@@ -5,6 +5,9 @@ import {HttpClient, HttpEventType, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {throwError} from 'rxjs';
 
+/**
+ * UserService class
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -12,17 +15,22 @@ export class UserService {
 
   private static API_ENDPOINT = 'http://localhost:8080/api';
   private static API_V1_ENDPOINT = 'http://localhost:8080/api/v1';
-  private static SIGN_UP_ENDPOINT = 'http://localhost:8080/api/v1/sign-up';
+  private static SIGN_UP_ENDPOINT = 'http://localhost:8080/rest/users';
   private static ACTIVATION_ACCOUNT_ENDPOINT = 'http://localhost:8080/api/v1/activate-account';
   private static UPDATE_EMAIL_ENDPOINT = 'http://localhost:8080/api/v1/update-email';
   private static PERFORM_PASSWORD_RESET_ENDPOINT = 'http://localhost:8080/api/v1/perform-reset-password';
   private static USER_DETAILS_API_ENDPOINT = 'http://localhost:8080/api/users/search/findByEmail';
   public static USERS_IMAGE_PREFIX = 'http://localhost:8080/uploads/users/images';
 
-
+  /**
+   * class constructor
+   */
   constructor(private http: HttpClient, private authService: AuthService) {
   }
 
+  /**
+   * register a new user function
+   */
   register(user: User) {
     return this.http.post<User>(UserService.SIGN_UP_ENDPOINT, user).pipe(
       // tslint:disable-next-line:no-shadowed-variable
