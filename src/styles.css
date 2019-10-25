@@ -2,10 +2,46 @@
 body {
   font-family: Roboto,sans-serif;
 }
-
+nav, .card {
+  box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
+  background-color: #fff;
+}
 nav a {
   font-family: Montserrat,sans-serif;
   text-decoration: none;
   font-style: normal;
   font-weight: 500;
+}
+
+/**
+ * Button global style
+ */
+.btn, .btn-primary {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  padding: 4px 15px;
+  border: 0;
+  border-radius: 35px;
+  font-size: 16px;
+  background-color: #6050dc;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4d3bd8;
+  -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+
+/**
+ * Links style
+ */
+a {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
 }

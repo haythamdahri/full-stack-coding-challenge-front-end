@@ -19,7 +19,7 @@
             <div class="form-group">
               <label for="Email">Email address</label>
               <input type="email" formControlName="email"
-                [ngClass]="{'is-invalid': form.controls.email.touched && form.controls.email.invalid, 'is-valid': form.controls.email.tuched && form.controls.email.valid}"
+                [ngClass]="{'is-invalid': form.controls.email.touched && form.controls.email.invalid, 'is-valid': form.controls.email.touched && form.controls.email.valid}"
                 class="form-control" id="Email" placeholder="Enter email" />
               <div class="invalid-feedback" *ngIf="form.controls.email.touched && form.controls.email.invalid">
                 Invalid email
@@ -28,16 +28,17 @@
             <div class="form-group">
               <label for="Password">Password</label>
               <input type="password" formControlName="password"
-                [ngClass]="{'is-invalid': form.controls.password.touched && form.controls.password.invalid, 'is-valid': form.controls.password.tuched && form.controls.password.valid}"
+                [ngClass]="{'is-invalid': form.controls.password.touched && form.controls.password.invalid, 'is-valid': form.controls.password.touched && form.controls.password.valid}"
                 class="form-control" id="Password" placeholder="Password">
               <div class="invalid-feedback" *ngIf="form.controls.password.touched && form.controls.password.invalid">
                 Invalid password
               </div>
             </div>
-            <button type="submit" #loginBtn [disabled]="form.invalid" class="btn btn-warning btn-sm btn-block"><i
+            <button type="submit" #loginBtn [disabled]="form.invalid" class="btn btn-primary btn-sm btn-block"><i
                 class="fas fa-sign-in-alt"></i> Login</button>
           </form>
-          <!-- Sign up links -->
+
+          <!-- Sign up link -->
           <div class="col-12 mt-3">
             <a routerLink="/signup">Sign Up</a>
           </div>

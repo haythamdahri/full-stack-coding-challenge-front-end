@@ -1,6 +1,6 @@
 import {UserToken} from '../../models/user-token.model';
 import {catchError, map, retry} from 'rxjs/operators';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import * as jwtDecode from 'jwt-decode';
 import {throwError} from 'rxjs';
@@ -72,10 +72,11 @@ export class AuthService {
       .post<{ token: string }>(`${AuthService.API}/authenticate`, {
         email,
         password
-      })
+      }, {headers: new HttpHeaders().append('Authorization', '')})
       .pipe(
         map(userData => {
-          const userToken = this.decodeToken(userData.token);
+
+          const userToken = this.decodeToken(userData['jwtToken']);
           localStorage.setItem('userToken', JSON.stringify(userToken));
           return userToken;
         })
@@ -116,6 +117,7 @@ export class AuthService {
    * @returns UserToken object
    */
   decodeToken(token: string) {
+    console.log('Decoding token: ' + token);
     const decoded = jwtDecode(token);
     const userToken = new UserToken();
     userToken.bearerToken = 'Bearer ' + token;

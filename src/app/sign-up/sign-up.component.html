@@ -42,7 +42,7 @@
             <div class="form-group">
               <label for="Password">Password</label>
               <input type="password" formControlName="password"
-                [ngClass]="{'is-invalid': form.controls.password.touched && form.controls.password.invalid, 'is-valid': form.controls.password.tuched && form.controls.password.valid}"
+                [ngClass]="{'is-invalid': form.controls.password.touched && form.controls.password.invalid, 'is-valid': form.controls.password.touched && form.controls.password.valid}"
                 class="form-control" id="Password" placeholder="Password">
               <div class="invalid-feedback" *ngIf="form.controls.password.touched && form.controls.password.invalid">
                 Invalid password
@@ -51,7 +51,7 @@
             <div class="form-group">
               <label for="PasswordConfirm">Confirm Password</label>
               <input type="password" formControlName="passwordConfirm"
-                [ngClass]="{'is-invalid': form.controls.passwordConfirm.touched && form.controls.passwordConfirm.invalid, 'is-valid': form.controls.passwordConfirm.tuched && form.controls.passwordConfirm.valid}"
+                [ngClass]="{'is-invalid': form.controls.passwordConfirm.touched && form.controls.passwordConfirm.invalid, 'is-valid': form.controls.passwordConfirm.touched && form.controls.passwordConfirm.valid}"
                 class="form-control" id="PasswordConfirm" placeholder="Confirm Password">
               <div class="invalid-feedback"
                 *ngIf="form.controls.passwordConfirm.touched && form.controls.passwordConfirm.invalid">

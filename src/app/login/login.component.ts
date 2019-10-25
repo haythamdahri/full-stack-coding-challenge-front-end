@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * After component function
+   * After component initialisation function
    */
   ngOnInit() {
     this.form = new FormGroup({
@@ -90,6 +90,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.router.navigate(['/']);
           },
           err => {
+            console.log(err);
             this.loginError = true;
             (this.loginBtn.nativeElement as HTMLButtonElement).innerHTML =
               '<i class="fas fa-sign-in-alt"></i> Login';

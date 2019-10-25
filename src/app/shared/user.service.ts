@@ -74,30 +74,6 @@ export class UserService {
     );
   }
 
-  updateUserImage(formData: FormData) {
-    return this.http.post<{ status: boolean, message: string, user: User }>(`${UserService.API_V1_ENDPOINT}/edit-user-image`, formData, {
-      reportProgress: true,
-      observe: 'events'
-    }).pipe(
-      map((event) => {
-
-        switch (event.type) {
-          case HttpEventType.UploadProgress:
-            const progress = Math.round(100 * event.loaded / event.total);
-            return {status: 'progress', message: progress};
-
-          case HttpEventType.Response:
-            event.body.user.image = UserService.USERS_IMAGE_PREFIX + '/' + event.body.user.image;
-            return event.body;
-          default:
-            return `Unhandled event: ${event.type}`;
-        }
-      }),
-      retry(2),
-      catchError(this.handleHttpError)
-    );
-  }
-
   updateUserEmail(email: string) {
     return this.http.post<{ status: boolean, message: string }>(`${UserService.UPDATE_EMAIL_ENDPOINT}`,
       new HttpParams().append('email', email)).pipe(

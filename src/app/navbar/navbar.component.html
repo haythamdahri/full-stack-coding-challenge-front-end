@@ -9,8 +9,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="''" [routerLinkActive]="'active'"><i class="fas fa-shopping-cart"></i> Nearby
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-shopping-cart"></i> Nearby
           Shops<span
             class="sr-only">(current)</span></a>
       </li>
@@ -20,7 +20,7 @@
       </li>
 
       <li class="nav-item" *ngIf="authService.isAuthenticated() else unauthenticated">
-        <a class="nav-link" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a class="nav-link" (click)="onLogout()" style="cursor: pointer"><i class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
 
       <!-- Unauthenticated users -->
@@ -35,9 +35,16 @@
       </ng-template>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Search</button>
+
+    <!-- Display search form if user is authenticated -->
+    <form class="form-inline my-2 my-lg-0" [formGroup]="form" *ngIf="authService.isAuthenticated()">
+      <!-- Search input -->
+      <input class="form-control mr-sm-2" name="search" formControlName="search" [ngClass]="{'is-valid': form.controls.search.touched && form.controls.search.valid}" type="search" placeholder="Search" aria-label="Search">
+      <div class="invalid-feedback" *ngIf="form.controls.touched && form.controls.search.invalid">
+        Invalid search
+      </div>
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" [disabled]="form.controls.search.invalid" (click)="onShopSearch()"><i class="fas fa-search"></i> Search</button>
     </form>
   </div>
 </nav>

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {PreferredShopsComponent} from './preferred-shops/preferred-shops.component';
@@ -9,9 +9,12 @@ import {LoginComponent} from './login/login.component';
 import {AuthenticatedGuard} from './shared/auth/authenticated-guard.service';
 
 
+/**
+ * Application routes
+ */
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: '', component: HomeComponent, canActivate: [AuthGuard]
   },
   {
     path: 'login', component: LoginComponent, canActivate: [AuthenticatedGuard]
@@ -27,6 +30,9 @@ const routes: Routes = [
   }
 ];
 
+/**
+ * Routing Module class
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
