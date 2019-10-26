@@ -16,7 +16,14 @@ nav a {
 /**
  * Button global style
  */
-.btn, .btn-primary {
+.mybtn {
+  border: 1.5px solid #000000;
+  -webkit-box-shadow: 10px 9px 3px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 9px 3px -7px rgba(0,0,0,0.75);
+  box-shadow: 10px 9px 3px -7px rgba(0,0,0,0.75);
+  border-radius: 0;
+}
+.btn-primary {
   font-family: Montserrat, sans-serif;
   font-weight: 700;
   padding: 4px 15px;

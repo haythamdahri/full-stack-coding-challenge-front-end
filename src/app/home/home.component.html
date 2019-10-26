@@ -1,1 +1,46 @@
-<p>home works!</p>
+<div class="row pb-5">
+
+  <!-- In case of http error, an error will be displayed, otherwise the list of shops -->
+  <div class="col-12 mt-5" *ngIf="errorMode else shopsList">
+    <div class="alert alert-warning">
+      <i class="fas fa-exclamation-circle"></i> An error occurred, please try again later
+    </div>
+  </div>
+
+  <ng-template #shopsList>
+
+    <!-- Loading icon -->
+    <div class="col-12 text-center mt-4" *ngIf="shops == null && !errorMode">
+      <div class="spinner-border text-primary text-center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- No record found message -->
+    <div class="col-12 text-center mt-4" *ngIf="shops != null && shops.length == 0 && !errorMode">
+      <div class="alert alert-info text-center font-weight-bold">
+        <i class="fab fa-ioxhost"></i> No shops has been found!
+      </div>
+    </div>
+
+    <!-- Shop list -->
+    <div *ngFor="let shop of shops" class="col-sm-12 col-md-12 col-lg-3 col-xl-3 mt-4 mx-auto">
+      <div class="card" id="shop{{shop.id}}">
+        <div class="card-body">
+          <h5 class="card-title">{{ shop.name }}</h5>
+        </div>
+        <img [src]="SHOP_IMAGE_PREFIX + '/' + shop.id" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="mybtn btn btn-danger float-left" style="cursor: pointer;" id="dislikeBtn{{shop.id}}" (click)="onShopDislike(shop.id)">
+            <i class="far fa-thumbs-down"></i> Dislike
+          </div>
+          <div class="mybtn btn btn-success float-right" style="cursor: pointer;" id="likeBtn{{shop.id}}" (click)="onShopLike(shop.id)">
+            <i class="far fa-thumbs-up"></i> Like
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
