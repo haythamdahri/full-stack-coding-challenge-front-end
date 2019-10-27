@@ -43,8 +43,7 @@
       <div class="invalid-feedback" *ngIf="form.controls.touched && form.controls.search.invalid">
         Invalid search
       </div>
-
-      <button class="btn btn-outline-success my-2 my-sm-0" type="button" [disabled]="form.controls.search.invalid" (click)="onShopSearch()"><i class="fas fa-search"></i> Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="form.controls.search.invalid" (click)="onShopSearch()"><i class="fas fa-search"></i> Search</button>
     </form>
   </div>
 </nav>

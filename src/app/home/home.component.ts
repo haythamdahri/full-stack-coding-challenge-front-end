@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {ShopService} from '../shared/shop.service';
 import Swal from 'sweetalert2';
 import {ActivatedRoute, Params} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 /**
  * Home component class
@@ -28,13 +29,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   /**
    * class constructor
    */
-  constructor(private shopService: ShopService, private route: ActivatedRoute) {
+  constructor(private shopService: ShopService, private route: ActivatedRoute, private titleService: Title) {
   }
 
   /**
    * After application initialisation function
    */
   ngOnInit() {
+    // Set component title
+    this.titleService.setTitle('Home - Shops');
     // Set initial values
     this.shops = null;
     this.errorMode = false;
