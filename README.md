@@ -27,14 +27,15 @@ After compiling and generating the bundle, the application must be accessible fr
 The objective here to set-up a successful connection between the [Front-end Client Side Application](https://github.com/haythamdahri/full-stack-coding-challenge-front-end) and the [Back-end Server Side Application](https://github.com/haythamdahri/full-stack-coding-challenge-back-end).
 As already mentioned in the [Web Challenge Specification](https://github.com/hiddenfounders/web-coding-challenge/blob/master/coding-challenge.md), we will introduce all web pages and scenarios that are expected from the application to produce.
 
-- **Login:** 
-  - As a User, I can sign up using my email & password :heavy_check_mark:
-![Login](UnitedRemote/login.png)
 
 - **Sign up:** 
-  - As a User, I can sign in using my email & password :heavy_check_mark:
+  - As a User, I can sign up using my email & password :heavy_check_mark:
 
 ![Sign up](UnitedRemote/SignupApplication.png)
+
+- **Login:** 
+  - As a User, I can sign in using my email & password :heavy_check_mark:
+![Login](UnitedRemote/login.png)
 
   - Successfully signed up user :heavy_check_mark:
 
@@ -46,7 +47,7 @@ As already mentioned in the [Web Challenge Specification](https://github.com/hid
 ![Main Page](UnitedRemote/NearByShopsForLoggedInUser.png)
 
   - As a User, I can like a shop, so it can be added to my preferred shops :heavy_check_mark:
-  - Acceptance criteria: liked shops shouldn’t be displayed on the main page :heavy_check_mark:
+  - Liked shops shouldn’t be displayed on the main page :heavy_check_mark:
   - As a User, I can dislike a shop, so it won’t be displayed within “Nearby Shops” list during the next 2 hours :heavy_check_mark:
   - As a User, i can perform searchs for shops by name :heavy_check_mark:
 
@@ -58,9 +59,10 @@ As already mentioned in the [Web Challenge Specification](https://github.com/hid
 
 ![My Preferred Shops](UnitedRemote/userShopsPreferences.png)
 
+At this point, we have successfully implement the Front-end Client side application by consuming the Back-end Server Side application using JWT authentication where we retrieve the Token from the server, save it locally and send it for each request to pass the authentication and authorization check successfully. 
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-If you find any necessary modifications or unsatisfy requirements, please contact me.
 
 ## Author
  - HAYTHAM DAHRI
